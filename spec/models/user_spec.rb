@@ -33,12 +33,11 @@ RSpec.describe User, type: :model do
     end
 
     it "with a duplicate username" do
-      skip
       user.save
       user2 = User.new( first_name: "Richard", last_name: "Bar",
                         username: 'jfoo', password: 'bbbbb'
                       )
-      expect(user).not_to be_valid
+      expect(user2).not_to be_valid
     end
   end
 
