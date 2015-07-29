@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def new
@@ -11,8 +11,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id)
+      flash[:notice] = "Welcome, #{@user.first_name}"
+      session[:user_id] = @user.id
+      redirect_to @user #user_path(@user)
     else
+      flash[:error] = "Unable to create user"
       render 'new'
     end
   end

@@ -20,10 +20,7 @@ feature "a user", type: :feature do
     page.click_button 'Create Account'
 
     expect(current_path).to eq user_path(1)
-  end
-
-  it "can login" do
-    user.save
+    expect(page).to have_content("Welcome, Richard")
   end
 
 end
