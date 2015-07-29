@@ -4,13 +4,12 @@ feature 'user', type: :feature do
 
   context 'who is registered' do
     let(:user) do
-      user = User.new( first_name: 'Richard', last_name: 'Foo',
-                       username: 'rfoo', password: 'aaaaa' )
+      User.new( first_name: 'Richard', last_name: 'Foo',
+                username: 'rfoo', password: 'aaaaa',
+                role: 'default' )
     end
 
-    before {
-      user.save
-    }
+    before { user.save }
 
     it "can login" do
       visit login_path

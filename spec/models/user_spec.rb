@@ -41,4 +41,12 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe "#songs" do
+
+    it "is a valid method" do
+      expect(user).to respond_to :songs
+    end
+
+  end
+
 end

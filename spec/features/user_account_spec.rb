@@ -3,8 +3,8 @@ require 'rails_helper'
 feature "a user", type: :feature do
 
   let(:user) do
-    user = User.new( first_name: 'Richard', last_name: 'Foo',
-                     username: 'rfoo', password: 'aaaaa' )
+    User.new( first_name: 'Richard', last_name: 'Foo',
+              username: 'rfoo', password: 'aaaaa' )
   end
 
   it "can create an account" do
